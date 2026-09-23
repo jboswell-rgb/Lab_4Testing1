@@ -30,4 +30,18 @@ int main()
 	std::cout << std::setw(15) << "\nFood Name Confirmation: " << food_name << std::endl;
 
 
+	double subtotal = quantity * unit_price;
+	std::cout << "\nSubtotal: " << subtotal;
+
+	if (member == 'y'){
+		double subtotal = quantity * unit_price * 0.9;
+		std::cout << "\nSubtotal with 10% Discount for Membership: " << subtotal;
+	}
+	std::string cashier_note = " ";
+	std::cout << "\nAdd Cashier Note here: ";
+	std::cin.ignore() >> cashier_note;
+	getline(std::cin, cashier_note);
+
+	std::cout << "\nInventory:\n" << quantity << " " << food_name;
+}
 }
