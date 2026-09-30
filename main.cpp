@@ -97,7 +97,7 @@ int main()
 	//asks for quantity
 	std::cout << "\nHow many would you like?: ";
 	std::cin >> quantity;
-	
+
 	//asks if they are a member
 	std::cout << "Are you a registered member? (y/n)\n";
 	std::cin >> member;
@@ -105,6 +105,69 @@ int main()
 	subtotal = quantity * price;
 	//displays what they said
 	std::cout << "\nYou entered:\n";
-	std::cout << std::setfill(' ') << std::setw(20) << quantity<<" "<<full_name << std::setw(15) << full_item_size << std::setw(15) << "$" << price << "\nSubtotal: $"<<subtotal;
+	std::cout << std::setfill(' ') << std::setw(20) << quantity << " " << full_name << std::setw(15) << full_item_size << std::setw(15) << "$" << price << "\nSubtotal: $" << subtotal;
+
+	std::cout << std::setfill(' ') << std::setw(1) << "\nSales Taxes" << std::endl;
+	std::cout << std::setfill(' ') << std::setw(20) << "Arkansas State Tax: 6.5%" << std::endl;
+	std::cout << std::setfill(' ') << std::setw(20) << "Faulkner County Tax: 0.5%" << std::endl;
+	std::cout << std::setfill(' ') << std::setw(20) << "Conway Municipal Tax: 2.125%" << std::endl;
+
+	double salesTax = 0.065 + 0.005 + 0.02125;
+	std::cout << std::setfill(' ') << std::setw(20) << "Tax Total: " << "$" << salesTax << std::endl;
+
+	char choice;
+
+	std::cout << std::setfill(' ') << std::setw(1) << "Tip Selection" << std::setw(10) << "Amount" << std::endl;
+	std::cout << std::setfill(' ') << std::setw(1) << "A. 15%" << std::setw(16) << "$1.50" << std::endl;
+	std::cout << std::setfill(' ') << std::setw(1) << "B. 20%" << std::setw(16) << "$2.00" << std::endl;
+	std::cout << std::setfill(' ') << std::setw(1) << "C. 25%" << std::setw(16) << "$2.50" << std::endl;
+	std::cout << std::setfill(' ') << std::setw(1) << "D. Other Amount" << std::endl;
+
+	std::cout << "What tip do you choose?: ";
+
+	std::cin >> choice;
+
+	double tip = 0;
+
+	switch (choice) {
+
+	case 'A':  std::cout << "Added 15% tip." << std::endl;
+
+		std::cout << "Thank you for your donation!" << std::endl;
+		tip = 1.50;
+
+			break;
+
+	case 'B':  std::cout << "Added 20% tip." << std::endl;
+
+		std::cout << "Thank you for your donation!" << std::endl;
+		tip = 2.00;
+
+		break;
+
+	case 'C':  std::cout << "Added 25% tip." << std::endl;
+
+		std::cout << "Thank you for your donation!" << std::endl;
+		tip = 2.50;
+
+		break;
+
+	case 'D':  std::cout << "Added 0% tip." << std::endl;
+
+		std::cout << "Thank you for your donation!" << std::endl;
+		tip = 0.00;
+
+		break;
+
+	default:  std::cout << "You didn't follow instructions!" << std::endl;
+
+		std::cout << "You must choose a valid tip." << std::endl;
+
+		break;    // optional -- there is nothing to fall into afterwards.
+
+	}
+	double total = subtotal - salesTax + tip;
+	std::cout << "\nTotal: $" << total;
+	return 0;
 
 }
